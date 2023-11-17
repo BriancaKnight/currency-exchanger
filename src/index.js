@@ -31,7 +31,7 @@ function convertCurrency(response, altCurrency) {
 function printElements(altCurrency, conversion) {
   const responseDiv = document.querySelector('#response-div');
   const p = document.createElement('p');
-  p.append(`The currency exchange from USD to ${altCurrency} is ${conversion}`);
+  p.append(`That's  ${conversion} ${altCurrency}`);
   responseDiv.append(p);
 }
 
