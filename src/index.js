@@ -19,6 +19,18 @@ function printElements(response, altCurrency) {
 }
 
 function printError(eroror, altCurrency) {
-  document.querySelector('#response-div').innerText = `There was an error accessing the data for ${altCurrency}: ${error}`
+  document.querySelector('#response-div').innerText = `There was an error accessing the data for ${altCurrency}: ${error}.`
 }
 
+function clearResults () {
+  const responseDiv = document.getElementById('#response-div');
+  responseDiv.innerHTML = "";
+}
+
+function handleForm (e) {
+  e.preventDefault();
+  document.querySelector('#alt-currency').innerText = null;
+  const getExchange = document.querySelector('#alt-currency').value;
+  getExchange(altCurrency);
+  clearResults();
+}
