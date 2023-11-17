@@ -34,3 +34,7 @@ function handleForm (e) {
   getExchange(altCurrency);
   clearResults();
 }
+
+window.addEventListener("load", function () {
+  document.querySelector('#alt-currency').addEventListener('submit', handleForm)
+})
