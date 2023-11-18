@@ -1,12 +1,13 @@
 {
   "name": "project",
   "version": "1.0.0",
-  "description": "",
+  "description": "#### with __tests__, coverage, jest, .env, .gitignore, lint, cleanwebpack, htmlwebpack",
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage",
     "build": "webpack --mode=development",
-    "start": "webpack-dev-server --open --mode=development"
+    "start": "webpack-dev-server --open --mode=development",
+    "lint": "eslint src --ext .js"
   },
   "keywords": [],
   "author": "",
@@ -30,5 +31,13 @@
   },
   "dependencies": {
     "bootstrap": "^5.2.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BriancaKnight/currency-exchanger.git"
+  },
+  "bugs": {
+    "url": "https://github.com/BriancaKnight/currency-exchanger/issues"
+  },
+  "homepage": "https://github.com/BriancaKnight/currency-exchanger#readme"
 }
