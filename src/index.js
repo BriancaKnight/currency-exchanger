@@ -9,6 +9,8 @@ function getExchange(altCurrency) {
     if (response.conversion_rates && response.conversion_rates[altCurrency]) {
       const conversion = convertCurrency(response, altCurrency);
       printElements(altCurrency, conversion);
+    } else if (!response.conversion_rates[altCurrency]) {
+      printCurrencyError(altCurrency);
     } else {
       printError(response, altCurrency);
     }
@@ -31,12 +33,16 @@ function convertCurrency(response, altCurrency) {
 function printElements(altCurrency, conversion) {
   const responseDiv = document.querySelector('#response-div');
   const p = document.createElement('p');
-  p.append(`That's  ${conversion} ${altCurrency}`);
+  p.append(`That's  ${conversion} in ${altCurrency}`);
   responseDiv.append(p);
 }
 
 function printError(error, altCurrency) {
   document.querySelector('#response-div').innerText = `There was an error accessing the data for ${altCurrency}: ${error}.`;
+}
+
+function printCurrencyError(error) {
+  document.querySelector('#response-div').innerText = `The selected currency doesn't exist.`
 }
 
 function clearResults() {
