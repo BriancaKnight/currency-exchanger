@@ -1,11 +1,11 @@
 export default class CurrencyExchange {
-  static getExchange(altCurrency) {
-    return fetch(`https://v6.exchangerate-api.com/v6/${API_KEY}/latest/${altCurrency}`)
+  static getExchange() {
+    return fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`)
       .then(function (response) {
         if (!response.ok) {
           return response.json()
-            .then(function (errorMessage) {
-              const errorText = `${response.status} ${response.statusText}`;
+            .then(function (apiErrorMessage) {
+              const errorText = `${response.status} ${response.statusText} ${apiErrorMessage}`;
               throw new Error(errorText);
             });
         } else {
@@ -16,5 +16,4 @@ export default class CurrencyExchange {
         return error;
       });
   }
-}
 }

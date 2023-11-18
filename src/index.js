@@ -5,19 +5,19 @@ import CurrencyExchange from './js/currency-exchange';
 
 function getExchange(altCurrency) {
   CurrencyExchange.getExchange(altCurrency)
-  .then (function (response) {
-    if (response.conversion_rates && response.conversion_rates[altCurrency]) {
-      const conversion = convertCurrency(response, altCurrency);
-      printElements(altCurrency, conversion);
-    } else if (!response.conversion_rates[altCurrency]) {
-      printCurrencyError(altCurrency);
-    } else {
-      printError(response, altCurrency);
-    }
-  });
+    .then(function (response) {
+      if (response.conversion_rates && response.conversion_rates[altCurrency]) {
+        const conversion = convertCurrency(response, altCurrency);
+        printElements(altCurrency, conversion);
+      } else if (!response.conversion_rates[altCurrency]) {
+        printCurrencyError(altCurrency);
+      } else {
+        printError(response, altCurrency);
+      }
+    });
 }
 
-function handleForm (e) {
+function handleForm(e) {
   e.preventDefault();
   const altCurrency = document.querySelector('#alt-currency').value;
   getExchange(altCurrency);
@@ -41,15 +41,15 @@ function printError(error, altCurrency) {
   document.querySelector('#response-div').innerText = `There was an error accessing the data for ${altCurrency}: ${error}.`;
 }
 
-function printCurrencyError(error) {
-  document.querySelector('#response-div').innerText = `The selected currency doesn't exist.`
+function printCurrencyError() {
+  document.querySelector('#response-div').innerText = `The selected currency doesn't exist.`;
 }
 
 function clearResults() {
   const responseDiv = document.getElementById('response-div');
-  responseDiv.innerText = ""
+  responseDiv.innerText = "";
 }
 
 window.addEventListener("load", function () {
   document.querySelector('#currency-form').addEventListener('submit', handleForm);
-})
+});
