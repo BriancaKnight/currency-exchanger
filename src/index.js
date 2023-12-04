@@ -9,6 +9,8 @@ function getExchange(altCurrency) {
       if (response.conversion_rates && response.conversion_rates[altCurrency]) {
         const conversion = convertCurrency(response, altCurrency);
         printElements(altCurrency, conversion);
+      } else if(!response.conversion_rates) {
+        printError(response, altCurrency);
       } else if (!response.conversion_rates[altCurrency]) {
         printCurrencyError(altCurrency);
       } else {
