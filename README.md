@@ -22,7 +22,7 @@ This application takes USD and converts it to either Euro, Japanese Yen, Pound S
 
 ## Setup/Installation Requirements
 
-# Cloning Instructions
+### Cloning Instructions
 * Clone this repository to your desktop.
 * Navigate to the top level of the directory. 
 * Install Node.js with `npm install`.
@@ -30,7 +30,7 @@ This application takes USD and converts it to either Euro, Japanese Yen, Pound S
 * To start the development server run `npm run start`
 * To lint the project run `npm run lint`
 
-# API Key Instructions
+### API Key Instructions
 * Make an account at https://www.exchangerate-api.com/ to get your personalized API key. 
 * Create a file named `.env` in the root of your directory. Make sure `.env` is added to your `.gitignore` directory. 
 * Store your API key in your `.env` file with the syntax `API_KEY=(your-api-key-goes-here)`
